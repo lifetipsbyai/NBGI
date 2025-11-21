@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Programs - Noble Genius Institute of Science and Technology</title>
+    <meta name="description" content="Explore our comprehensive range of STEM programs including ND, HND, and certificate courses.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #0891b2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(8, 145, 178, 0.8)), 
+                        url('resources/hero_campus.jpg') center/cover;
+            height: 60vh;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .program-card {
+            transition: all 0.3s ease;
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .program-card.hidden {
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+        
+        .search-box {
+            transition: all 0.3s ease;
+        }
+        
+        .search-box:focus {
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="resources/logo.png" alt="NGIST Logo" class="h-10 w-auto">
+                    <div class="ml-3">
+                        <h1 class="font-display text-xl font-bold text-gray-900">Noble Genius Institute</h1>
+                        <p class="text-xs text-gray-600">Science & Technology</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="programs.html" class="nav-link text-blue-600 font-medium">Programs</a>
+                    <a href="admissions.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Admissions</a>
+                    <a href="news-events.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">News & Events</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Apply Now
+                    </button>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg flex items-center justify-center relative">
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <h1 class="font-display text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                Academic Programs
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Discover our comprehensive range of STEM programs designed for your success.
+            </p>
+        </div>
+    </section>
+
+    <!-- Program Filters -->
+    <section class="py-12 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-6 items-center justify-between">
+                <!-- Search Box -->
+                <div class="relative flex-1 max-w-md">
+                    <input 
+                        type="text" 
+                        id="programSearch" 
+                        placeholder="Search programs..." 
+                        class="search-box w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+                    >
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-3">
+                    <button class="filter-btn active px-6 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium" data-filter="all">
+                        All Programs
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium" data-filter="nd">
+                        National Diploma
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium" data-filter="hnd">
+                        Higher National Diploma
+                    </button>
+                    <button class="filter-btn px-6 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium" data-filter="certificate">
+                        Certificate
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Grid -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="programsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Computer Science ND -->
+                <div class="program-card card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="nd" data-aos="fade-up">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">ND Program</span>
+                            <span class="text-gray-500 text-sm">2 Years</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Computer Science</h3>
+                        <p class="text-gray-600 mb-4">
+                            Master programming fundamentals, software development, database management, and web technologies in our comprehensive diploma program.
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>4 Semesters</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Max 30 students per class</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-certificate mr-2"></i>
+                                <span>NBTE Accredited</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Computer Science HND -->
+                <div class="program-card card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="hnd" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-code text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">HND Program</span>
+                            <span class="text-gray-500 text-sm">2 Years</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Computer Science</h3>
+                        <p class="text-gray-600 mb-4">
+                            Advanced programming, software engineering, artificial intelligence, and emerging technologies for career advancement.
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>4 Semesters</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Max 25 students per class</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-graduation-cap mr-2"></i>
+                                <span>Requires ND Certificate</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Biotechnology ND -->
+                <div class="program-card card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="nd" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-flask text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">ND Program</span>
+                            <span class="text-gray-500 text-sm">2 Years</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Biotechnology</h3>
+                        <p class="text-gray-600 mb-4">
+                            Explore the intersection of biology and technology, genetic engineering, and pharmaceutical applications.
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>4 Semesters</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Max 25 students per class</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-microscope mr-2"></i>
+                                <span>Modern Lab Facilities</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Biotechnology HND -->
+                <div class="program-card card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="hnd" data-aos="fade-up" data-aos-delay="600">
+                    <div class="h-48 bg-gradient-to-br from-green-600 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-dna text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">HND Program</span>
+                            <span class="text-gray-500 text-sm">2 Years</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Biotechnology</h3>
+                        <p class="text-gray-600 mb-4">
+                            Advanced biotechnology applications, research methodologies, and industrial biotechnology processes.
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>4 Semesters</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Max 20 students per class</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-flask mr-2"></i>
+                                <span>Research Projects</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- AI & Robotics Certificate -->
+                <div class="program-card card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="certificate" data-aos="fade-up" data-aos-delay="800">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">Certificate</span>
+                            <span class="text-gray-500 text-sm">6 Months</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">AI & Robotics</h3>
+                        <p class="text-gray-600 mb-4">
+                            Intensive program covering machine learning, robotics programming, and automation technologies.
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>2 Semesters</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Max 15 students per class</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-laptop mr-2"></i>
+                                <span>Hands-on Projects</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Data Science Certificate -->
+                <div class="program-card card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="certificate" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">Certificate</span>
+                            <span class="text-gray-500 text-sm">9 Months</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Data Science</h3>
+                        <p class="text-gray-600 mb-4">
+                            Master data analysis, visualization, machine learning, and big data technologies for career growth.
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>3 Semesters</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Max 20 students per class</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-database mr-2"></i>
+                                <span>Real-world Projects</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition-colors font-semibold">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cybersecurity ND -->
+                <div class="program-card card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="nd" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="h-48 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold">ND Program</span>
+                            <span class="text-gray-500 text-sm">2 Years</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Cybersecurity</h3>
+                        <p class="text-gray-600 mb-4">
+                            Learn network security, ethical hacking, digital forensics, and information security management.
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>4 Semesters</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Max 25 students per class</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-lock mr-2"></i>
+                                <span>Security Lab Access</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors font-semibold">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Software Engineering HND -->
+                <div class="program-card card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="hnd" data-aos="fade-up" data-aos-delay="1400">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-cogs text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold">HND Program</span>
+                            <span class="text-gray-500 text-sm">2 Years</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Software Engineering</h3>
+                        <p class="text-gray-600 mb-4">
+                            Advanced software development methodologies, project management, and enterprise application development.
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>4 Semesters</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Max 20 students per class</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-project-diagram mr-2"></i>
+                                <span>Team Projects</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition-colors font-semibold">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Digital Marketing Certificate -->
+                <div class="program-card card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="certificate" data-aos="fade-up" data-aos-delay="1600">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center">
+                        <i class="fas fa-bullhorn text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-semibold">Certificate</span>
+                            <span class="text-gray-500 text-sm">6 Months</span>
+                        </div>
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Digital Marketing</h3>
+                        <p class="text-gray-600 mb-4">
+                            Learn SEO, social media marketing, content strategy, and digital analytics for business growth.
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>2 Semesters</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-users mr-2"></i>
+                                <span>Max 25 students per class</span>
+                            </div>
+                            <div class="flex items-center text-sm text-gray-500">
+                                <i class="fas fa-chart-bar mr-2"></i>
+                                <span>Live Campaigns</span>
+                            </div>
+                        </div>
+                        <button class="w-full bg-yellow-600 text-white py-3 rounded-lg hover:bg-yellow-700 transition-colors font-semibold">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- No Results Message -->
+            <div id="noResults" class="hidden text-center py-16">
+                <i class="fas fa-search text-6xl text-gray-300 mb-4"></i>
+                <h3 class="font-display text-2xl font-bold text-gray-600 mb-2">No programs found</h3>
+                <p class="text-gray-500">Try adjusting your search criteria or filters.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">
+                Ready to Start Your Journey?
+            </h2>
+            <p class="text-xl mb-8 opacity-90" data-aos="fade-up" data-aos-delay="200">
+                Choose from our wide range of programs and take the first step towards your career in STEM.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg">
+                    Apply for Admission
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors text-lg">
+                    Download Brochure
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="resources/logo.png" alt="NGIST Logo" class="h-8 w-auto">
+                        <div class="ml-3">
+                            <h3 class="font-display text-lg font-bold">Noble Genius Institute</h3>
+                            <p class="text-sm text-gray-400">Science & Technology</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Empowering innovation through excellence in STEM education and research.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="admissions.html" class="hover:text-white transition-colors">Admissions</a></li>
+                        <li><a href="news-events.html" class="hover:text-white transition-colors">News & Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Academic</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Course Catalog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Academic Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Student Portal</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Library</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>ngisatedu@gmail.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>08065758399</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Institute Location</li>
+                        <li><i class="fas fa-clock mr-2"></i>Mon-Fri: 8AM-5PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Noble Genius Institute of Science and Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Program filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const programCards = document.querySelectorAll('.program-card');
+        const searchInput = document.getElementById('programSearch');
+        const noResults = document.getElementById('noResults');
+        
+        // Filter functionality
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filter = button.getAttribute('data-filter');
+                filterPrograms(filter, searchInput.value.toLowerCase());
+            });
+        });
+        
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            const activeFilter = document.querySelector('.filter-btn.active').getAttribute('data-filter');
+            filterPrograms(activeFilter, searchTerm);
+        });
+        
+        function filterPrograms(category, searchTerm) {
+            let visibleCount = 0;
+            
+            programCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                const cardText = card.textContent.toLowerCase();
+                
+                const categoryMatch = category === 'all' || cardCategory === category;
+                const searchMatch = searchTerm === '' || cardText.includes(searchTerm);
+                
+                if (categoryMatch && searchMatch) {
+                    card.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            
+            // Show/hide no results message
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

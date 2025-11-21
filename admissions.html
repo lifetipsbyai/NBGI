@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Noble Genius Institute of Science and Technology</title>
+    <meta name="description" content="Apply for admission to our STEM programs. Learn about requirements, fees, and application process.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #0891b2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(8, 145, 178, 0.8)), 
+                        url('resources/hero_campus.jpg') center/cover;
+            height: 60vh;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .timeline-step {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-teal);
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--accent-teal);
+        }
+        
+        .timeline-step::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 2.5rem;
+            width: 2px;
+            height: calc(100% - 2rem);
+            background: #e5e7eb;
+        }
+        
+        .timeline-step:last-child::after {
+            display: none;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step.active {
+            display: block;
+        }
+        
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+        
+        .input-group {
+            position: relative;
+        }
+        
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            transform: translateY(-1.5rem) scale(0.875);
+            color: var(--primary-blue);
+        }
+        
+        .input-group label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            transition: all 0.2s ease;
+            pointer-events: none;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="resources/logo.png" alt="NGIST Logo" class="h-10 w-auto">
+                    <div class="ml-3">
+                        <h1 class="font-display text-xl font-bold text-gray-900">Noble Genius Institute</h1>
+                        <p class="text-xs text-gray-600">Science & Technology</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="programs.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Programs</a>
+                    <a href="admissions.html" class="nav-link text-blue-600 font-medium">Admissions</a>
+                    <a href="news-events.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">News & Events</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Apply Now
+                    </button>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg flex items-center justify-center relative">
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <h1 class="font-display text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                Admissions
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Start your journey towards a successful career in science and technology.
+            </p>
+        </div>
+    </section>
+
+    <!-- Application Process -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Application Process
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Simple steps to join our institute and start your STEM education journey.
+                </p>
+            </div>
+            
+            <div class="space-y-12">
+                <div class="timeline-step" data-aos="fade-up">
+                    <div class="bg-blue-50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl mr-4">1</div>
+                            <h3 class="font-display text-2xl font-bold text-gray-900">Choose Your Program</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Explore our comprehensive range of STEM programs and select the one that aligns with your career goals and interests.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-teal-50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-xl mr-4">2</div>
+                            <h3 class="font-display text-2xl font-bold text-gray-900">Submit Application</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Complete our online application form with your personal details, academic history, and program preferences.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-green-50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-green-600 text-white rounded-full flex items-center justify-center font-bold text-xl mr-4">3</div>
+                            <h3 class="font-display text-2xl font-bold text-gray-900">Document Review</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Our admissions team will review your application and supporting documents to ensure you meet the requirements.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-step" data-aos="fade-up" data-aos-delay="600">
+                    <div class="bg-purple-50 rounded-xl p-8">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-600 text-white rounded-full flex items-center justify-center font-bold text-xl mr-4">4</div>
+                            <h3 class="font-display text-2xl font-bold text-gray-900">Admission Decision</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Receive your admission decision and enrollment instructions. Successful candidates will proceed with registration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Online Application Form -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
+                    Online Application
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Complete your application in just a few steps.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <!-- Progress Bar -->
+                <div class="mb-8">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-gray-600">Step <span id="currentStep">1</span> of 4</span>
+                        <span class="text-sm font-medium text-gray-600"><span id="progressPercent">25</span>% Complete</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div id="progressBar" class="progress-bar bg-blue-600 h-2 rounded-full" style="width: 25%"></div>
+                    </div>
+                </div>
+                
+                <form id="applicationForm">
+                    <!-- Step 1: Personal Information -->
+                    <div class="form-step active" id="step1">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-6">Personal Information</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="input-group">
+                                <input type="text" id="firstName" name="firstName" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                <label for="firstName">First Name</label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="text" id="lastName" name="lastName" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                <label for="lastName">Last Name</label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="email" id="email" name="email" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                <label for="email">Email Address</label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="tel" id="phone" name="phone" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                <label for="phone">Phone Number</label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <input type="date" id="dateOfBirth" name="dateOfBirth" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                <label for="dateOfBirth">Date of Birth</label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <select id="gender" name="gender" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group mt-6">
+                            <textarea id="address" name="address" rows="3" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required></textarea>
+                            <label for="address">Home Address</label>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2: Program Selection -->
+                    <div class="form-step" id="step2">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-6">Program Selection</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="input-group">
+                                <select id="programType" name="programType" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                    <option value="">Select Program Type</option>
+                                    <option value="nd">National Diploma (ND)</option>
+                                    <option value="hnd">Higher National Diploma (HND)</option>
+                                    <option value="certificate">Certificate Program</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <select id="programChoice" name="programChoice" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                    <option value="">Select Program</option>
+                                    <option value="computer-science">Computer Science</option>
+                                    <option value="biotechnology">Biotechnology</option>
+                                    <option value="cybersecurity">Cybersecurity</option>
+                                    <option value="ai-robotics">AI & Robotics</option>
+                                    <option value="data-science">Data Science</option>
+                                    <option value="software-engineering">Software Engineering</option>
+                                    <option value="digital-marketing">Digital Marketing</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <select id="studyMode" name="studyMode" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                    <option value="">Select Study Mode</option>
+                                    <option value="full-time">Full-Time</option>
+                                    <option value="part-time">Part-Time</option>
+                                    <option value="evening">Evening Classes</option>
+                                </select>
+                            </div>
+                            
+                            <div class="input-group">
+                                <select id="entrySession" name="entrySession" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                    <option value="">Select Entry Session</option>
+                                    <option value="2024-sept">September 2024</option>
+                                    <option value="2025-jan">January 2025</option>
+                                    <option value="2025-sept">September 2025</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Educational Background -->
+                    <div class="form-step" id="step3">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-6">Educational Background</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="input-group">
+                                <input type="text" id="schoolName" name="schoolName" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                <label for="schoolName">Last School Attended</label>
+                            </div>
+                            
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="input-group">
+                                    <select id="qualification" name="qualification" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                        <option value="">Highest Qualification</option>
+                                        <option value="ssce">SSCE/WAEC</option>
+                                        <option value="neco">NECO</option>
+                                        <option value="nd">National Diploma</option>
+                                        <option value="hnd">Higher National Diploma</option>
+                                        <option value="bachelor">Bachelor's Degree</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <input type="text" id="yearCompleted" name="yearCompleted" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                                    <label for="yearCompleted">Year Completed</label>
+                                </div>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Upload Certificates (Optional)</label>
+                                <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                                    <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                                    <p class="text-gray-600 mb-2">Drag and drop your files here, or click to browse</p>
+                                    <p class="text-sm text-gray-500">Supported formats: PDF, JPG, PNG (Max 5MB each)</p>
+                                    <input type="file" id="certificates" name="certificates" multiple accept=".pdf,.jpg,.jpeg,.png" class="hidden">
+                                    <button type="button" onclick="document.getElementById('certificates').click()" class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                                        Choose Files
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4: Additional Information -->
+                    <div class="form-step" id="step4">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-6">Additional Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="input-group">
+                                <textarea id="careerGoals" name="careerGoals" rows="4" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"></textarea>
+                                <label for="careerGoals">Career Goals & Aspirations</label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <textarea id="whyNGIST" name="whyNGIST" rows="4" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"></textarea>
+                                <label for="whyNGIST">Why do you want to study at NGIST?</label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="terms" class="mr-3" required>
+                                    <span class="text-gray-700">I agree to the terms and conditions and privacy policy</span>
+                                </label>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label class="flex items-center">
+                                    <input type="checkbox" name="newsletter" class="mr-3">
+                                    <span class="text-gray-700">I would like to receive updates and newsletters from NGIST</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between mt-8">
+                        <button type="button" id="prevBtn" class="px-6 py-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors font-semibold" style="display: none;">
+                            <i class="fas fa-arrow-left mr-2"></i>Previous
+                        </button>
+                        <div class="flex-1"></div>
+                        <button type="button" id="nextBtn" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                            Next<i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                        <button type="submit" id="submitBtn" class="px-8 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold" style="display: none;">
+                            Submit Application<i class="fas fa-check ml-2"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements & Deadlines -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Requirements -->
+                <div data-aos="fade-up">
+                    <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">Admission Requirements</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-blue-50 rounded-xl p-6">
+                            <h3 class="font-bold text-lg text-blue-900 mb-3">
+                                <i class="fas fa-graduation-cap mr-2"></i>National Diploma (ND) Programs
+                            </h3>
+                            <ul class="space-y-2 text-blue-800">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                                    <span>SSCE/WAEC with at least 5 credits including Mathematics and English</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                                    <span>Minimum of 2 years post-secondary education</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                                    <span>Relevant science subjects for chosen program</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-purple-50 rounded-xl p-6">
+                            <h3 class="font-bold text-lg text-purple-900 mb-3">
+                                <i class="fas fa-university mr-2"></i>Higher National Diploma (HND) Programs
+                            </h3>
+                            <ul class="space-y-2 text-purple-800">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                                    <span>Relevant National Diploma (ND) certificate</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                                    <span>Minimum of Lower Credit grade</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                                    <span>One year post-ND industrial experience (preferred)</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 rounded-xl p-6">
+                            <h3 class="font-bold text-lg text-green-900 mb-3">
+                                <i class="fas fa-certificate mr-2"></i>Certificate Programs
+                            </h3>
+                            <ul class="space-y-2 text-green-800">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                                    <span>Minimum of SSCE/WAEC certificate</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                                    <span>Basic computer literacy (for tech programs)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-green-600 mr-2 mt-1"></i>
+                                    <span>Passion for learning and career advancement</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Important Dates -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h2 class="font-display text-3xl font-bold text-gray-900 mb-8">Important Dates</h2>
+                    
+                    <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                        <h3 class="font-bold text-lg text-gray-900 mb-4">2024/2025 Academic Session</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                                <span class="font-medium text-gray-700">Application Opens</span>
+                                <span class="text-blue-600 font-semibold">March 1, 2024</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                                <span class="font-medium text-gray-700">Early Bird Deadline</span>
+                                <span class="text-green-600 font-semibold">June 30, 2024</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                                <span class="font-medium text-gray-700">Application Deadline</span>
+                                <span class="text-orange-600 font-semibold">August 31, 2024</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3 border-b border-gray-200">
+                                <span class="font-medium text-gray-700">Entrance Exam</span>
+                                <span class="text-purple-600 font-semibold">September 15, 2024</span>
+                            </div>
+                            <div class="flex justify-between items-center py-3">
+                                <span class="font-medium text-gray-700">Semester Begins</span>
+                                <span class="text-red-600 font-semibold">October 7, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6">
+                        <h3 class="font-bold text-lg text-yellow-900 mb-3">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>Important Notes
+                        </h3>
+                        <ul class="space-y-2 text-yellow-800 text-sm">
+                            <li>• Applications are processed on a rolling basis</li>
+                            <li>• Early applications have higher admission chances</li>
+                            <li>• Scholarship applications close June 30, 2024</li>
+                            <li>• International students should apply 3 months early</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fees & Financial Aid -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
+                    Tuition & Financial Aid
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Affordable education with various financial support options.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-graduation-cap text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">National Diploma</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-4">₦250,000</div>
+                    <p class="text-gray-600 mb-6">Per academic session</p>
+                    <ul class="text-left space-y-2 text-gray-600 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span>Tuition & course materials</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span>Lab access & equipment</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span>Library & online resources</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                        Apply Now
+                    </button>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center border-2 border-blue-600" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-university text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Higher National Diploma</h3>
+                    <div class="text-4xl font-bold text-purple-600 mb-4">₦300,000</div>
+                    <p class="text-gray-600 mb-6">Per academic session</p>
+                    <ul class="text-left space-y-2 text-gray-600 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span>Advanced curriculum</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span>Research opportunities</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span>Industry partnerships</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                        Apply Now
+                    </button>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-certificate text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Certificate Programs</h3>
+                    <div class="text-4xl font-bold text-green-600 mb-4">₦150,000</div>
+                    <p class="text-gray-600 mb-6">Per program</p>
+                    <ul class="text-left space-y-2 text-gray-600 mb-6">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span>Intensive training</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span>Hands-on projects</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-600 mr-2"></i>
+                            <span>Career placement support</span>
+                        </li>
+                    </ul>
+                    <button class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors font-semibold">
+                        Apply Now
+                    </button>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="bg-white rounded-xl shadow-lg p-8 max-w-2xl mx-auto" data-aos="fade-up">
+                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-4">Financial Aid & Scholarships</h3>
+                    <p class="text-gray-600 mb-6">
+                        We believe financial constraints should not prevent talented students from accessing quality education. 
+                        Explore our various scholarship and financial aid options.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-blue-900 mb-2">Merit Scholarships</h4>
+                            <p class="text-blue-800 text-sm">Up to 50% tuition waiver for outstanding students</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-green-900 mb-2">Need-Based Aid</h4>
+                            <p class="text-green-800 text-sm">Financial assistance for deserving students</p>
+                        </div>
+                    </div>
+                    <button class="bg-orange-600 text-white px-8 py-3 rounded-lg hover:bg-orange-700 transition-colors font-semibold">
+                        Learn About Financial Aid
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="resources/logo.png" alt="NGIST Logo" class="h-8 w-auto">
+                        <div class="ml-3">
+                            <h3 class="font-display text-lg font-bold">Noble Genius Institute</h3>
+                            <p class="text-sm text-gray-400">Science & Technology</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Empowering innovation through excellence in STEM education and research.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="admissions.html" class="hover:text-white transition-colors">Admissions</a></li>
+                        <li><a href="news-events.html" class="hover:text-white transition-colors">News & Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Academic</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Course Catalog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Academic Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Student Portal</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Library</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>ngisatedu@gmail.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>08065758399</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Institute Location</li>
+                        <li><i class="fas fa-clock mr-2"></i>Mon-Fri: 8AM-5PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Noble Genius Institute of Science and Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Multi-step form functionality
+        let currentStep = 1;
+        const totalSteps = 4;
+        
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const submitBtn = document.getElementById('submitBtn');
+        const progressBar = document.getElementById('progressBar');
+        const currentStepSpan = document.getElementById('currentStep');
+        const progressPercent = document.getElementById('progressPercent');
+        
+        function updateProgress() {
+            const progress = (currentStep / totalSteps) * 100;
+            progressBar.style.width = progress + '%';
+            currentStepSpan.textContent = currentStep;
+            progressPercent.textContent = Math.round(progress);
+            
+            // Show/hide buttons
+            prevBtn.style.display = currentStep > 1 ? 'block' : 'none';
+            nextBtn.style.display = currentStep < totalSteps ? 'block' : 'none';
+            submitBtn.style.display = currentStep === totalSteps ? 'block' : 'none';
+            
+            // Update step visibility
+            document.querySelectorAll('.form-step').forEach((step, index) => {
+                if (index + 1 === currentStep) {
+                    step.classList.add('active');
+                } else {
+                    step.classList.remove('active');
+                }
+            });
+        }
+        
+        nextBtn.addEventListener('click', () => {
+            // Validate current step before proceeding
+            const currentStepElement = document.getElementById(`step${currentStep}`);
+            const requiredFields = currentStepElement.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    isValid = false;
+                    field.classList.add('border-red-500');
+                } else {
+                    field.classList.remove('border-red-500');
+                }
+            });
+            
+            if (isValid && currentStep < totalSteps) {
+                currentStep++;
+                updateProgress();
+            }
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateProgress();
+            }
+        });
+        
+        // Form submission
+        document.getElementById('applicationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show success message
+            alert('Application submitted successfully! You will receive a confirmation email shortly.');
+            
+            // Reset form
+            document.getElementById('applicationForm').reset();
+            currentStep = 1;
+            updateProgress();
+        });
+        
+        // File upload functionality
+        document.getElementById('certificates').addEventListener('change', (e) => {
+            const files = e.target.files;
+            if (files.length > 0) {
+                let fileNames = '';
+                for (let i = 0; i < files.length; i++) {
+                    fileNames += files[i].name + (i < files.length - 1 ? ', ' : '');
+                }
+                alert(`Selected files: ${fileNames}`);
+            }
+        });
+    </script>
+</body>
+</html>

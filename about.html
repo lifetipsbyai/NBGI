@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Noble Genius Institute of Science and Technology</title>
+    <meta name="description" content="Learn about Noble Genius Institute's mission, history, and commitment to excellence in STEM education.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #0891b2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(8, 145, 178, 0.8)), 
+                        url('resources/hero_campus.jpg') center/cover;
+            height: 60vh;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-teal);
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: #e5e7eb;
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="resources/logo.png" alt="NGIST Logo" class="h-10 w-auto">
+                    <div class="ml-3">
+                        <h1 class="font-display text-xl font-bold text-gray-900">Noble Genius Institute</h1>
+                        <p class="text-xs text-gray-600">Science & Technology</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-blue-600 font-medium">About</a>
+                    <a href="programs.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Programs</a>
+                    <a href="admissions.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Admissions</a>
+                    <a href="news-events.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">News & Events</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Apply Now
+                    </button>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg flex items-center justify-center relative">
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <h1 class="font-display text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                About Noble Genius Institute
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Pioneering excellence in science and technology education since our inception.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-up">
+                    <h2 class="font-display text-4xl font-bold text-gray-900 mb-6">Our Mission</h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        To provide world-class education in science and technology, fostering innovation, 
+                        research excellence, and producing graduates who will lead the technological 
+                        transformation of our society.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-graduation-cap text-blue-600 text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Excellence in Education</h3>
+                                <p class="text-gray-600">Delivering comprehensive STEM programs with cutting-edge curriculum and facilities.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-lightbulb text-blue-600 text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Innovation & Research</h3>
+                                <p class="text-gray-600">Fostering a culture of innovation through research and practical applications.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-handshake text-blue-600 text-xl mr-4 mt-1"></i>
+                            <div>
+                                <h3 class="font-semibold text-gray-900 mb-2">Industry Partnership</h3>
+                                <p class="text-gray-600">Building strong connections with industry leaders for real-world experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gradient-to-br from-blue-50 to-teal-50 rounded-2xl p-8">
+                        <h2 class="font-display text-4xl font-bold text-gray-900 mb-6">Our Vision</h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            To be recognized globally as a leading institution in science and technology 
+                            education, research, and innovation, contributing significantly to the 
+                            technological advancement of Nigeria and the world.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-blue-600 mb-2">Top 10</div>
+                                <p class="text-gray-600 text-sm">Leading STEM Institute in Africa</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-teal-600 mb-2">Global</div>
+                                <p class="text-gray-600 text-sm">Recognition for Research Excellence</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Our Journey
+                </h2>
+                <p class="text-xl text-gray-600">
+                    A timeline of our growth and achievements in STEM education.
+                </p>
+            </div>
+            
+            <div class="space-y-12">
+                <div class="timeline-item" data-aos="fade-up">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-blue-600 text-white px-4 py-2 rounded-full font-semibold">2018</span>
+                            <h3 class="font-display text-2xl font-bold text-gray-900 ml-4">Foundation</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Noble Genius Institute of Science and Technology was founded by Gilbert Chidiebere Nnamdi 
+                            with a vision to revolutionize STEM education in Nigeria.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-teal-600 text-white px-4 py-2 rounded-full font-semibold">2019</span>
+                            <h3 class="font-display text-2xl font-bold text-gray-900 ml-4">First Graduation</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Celebrated our first graduating class with 95% employment rate within 6 months of graduation.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-green-600 text-white px-4 py-2 rounded-full font-semibold">2021</span>
+                            <h3 class="font-display text-2xl font-bold text-gray-900 ml-4">Research Excellence</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Established state-of-the-art research facilities and launched breakthrough projects 
+                            in biotechnology and artificial intelligence.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="600">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-purple-600 text-white px-4 py-2 rounded-full font-semibold">2023</span>
+                            <h3 class="font-display text-2xl font-bold text-gray-900 ml-4">Industry Partnerships</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Forged strategic partnerships with leading technology companies, creating internship 
+                            and job placement opportunities for our students.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="800">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-orange-600 text-white px-4 py-2 rounded-full font-semibold">2024</span>
+                            <h3 class="font-display text-2xl font-bold text-gray-900 ml-4">Expansion & Growth</h3>
+                        </div>
+                        <p class="text-gray-600 text-lg">
+                            Launched new certificate programs in emerging technologies and expanded our campus 
+                            facilities to accommodate growing student enrollment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Leadership Team
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Meet the visionary leaders driving our institution's success.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+                    <div class="h-64 bg-gradient-to-br from-blue-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Gilbert Chidiebere Nnamdi</h3>
+                        <p class="text-blue-600 font-semibold mb-3">Founder & President</p>
+                        <p class="text-gray-600">
+                            Visionary leader with over 15 years of experience in STEM education and technology innovation.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-64 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-user-graduate text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Dr. Sarah Johnson</h3>
+                        <p class="text-green-600 font-semibold mb-3">Academic Director</p>
+                        <p class="text-gray-600">
+                            PhD in Computer Science with expertise in curriculum development and academic excellence.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-64 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-user-cog text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-2">Prof. Michael Chen</h3>
+                        <p class="text-purple-600 font-semibold mb-3">Research Director</p>
+                        <p class="text-gray-600">
+                            Leading researcher in biotechnology with numerous publications and industry collaborations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accreditation & Recognition -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Accreditation & Recognition
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Our commitment to excellence is validated by recognized accreditation bodies.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">NBTE Accredited</h3>
+                    <p class="text-gray-600 text-sm">National Board for Technical Education</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Quality Assurance</h3>
+                    <p class="text-gray-600 text-sm">ISO 9001:2015 Certified</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">International</h3>
+                    <p class="text-gray-600 text-sm">Global STEM Education Network</p>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg p-8 text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-2xl text-orange-600"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Excellence Award</h3>
+                    <p class="text-gray-600 text-sm">Best STEM Institute 2023</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">
+                Join Our Community
+            </h2>
+            <p class="text-xl mb-8 opacity-90" data-aos="fade-up" data-aos-delay="200">
+                Become part of an institution that's shaping the future of science and technology education.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg">
+                    Apply Now
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors text-lg">
+                    Schedule Visit
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="resources/logo.png" alt="NGIST Logo" class="h-8 w-auto">
+                        <div class="ml-3">
+                            <h3 class="font-display text-lg font-bold">Noble Genius Institute</h3>
+                            <p class="text-sm text-gray-400">Science & Technology</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Empowering innovation through excellence in STEM education and research.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="admissions.html" class="hover:text-white transition-colors">Admissions</a></li>
+                        <li><a href="news-events.html" class="hover:text-white transition-colors">News & Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Academic</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Course Catalog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Academic Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Student Portal</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Library</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>ngisatedu@gmail.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>08065758399</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Institute Location</li>
+                        <li><i class="fas fa-clock mr-2"></i>Mon-Fri: 8AM-5PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Noble Genius Institute of Science and Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>

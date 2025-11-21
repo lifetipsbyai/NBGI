@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News & Events - Noble Genius Institute of Science and Technology</title>
+    <meta name="description" content="Stay updated with the latest news, events, and achievements at Noble Genius Institute.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- FullCalendar -->
+    <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/index.global.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #0891b2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(8, 145, 178, 0.8)), 
+                        url('resources/hero_campus.jpg') center/cover;
+            height: 60vh;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .news-item {
+            transition: all 0.3s ease;
+        }
+        
+        .news-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .category-filter {
+            transition: all 0.3s ease;
+        }
+        
+        .category-filter.active {
+            background: var(--primary-blue);
+            color: white;
+        }
+        
+        .event-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .event-card:hover {
+            border-left-color: var(--accent-teal);
+            transform: translateX(4px);
+        }
+        
+        .calendar-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="resources/logo.png" alt="NGIST Logo" class="h-10 w-auto">
+                    <div class="ml-3">
+                        <h1 class="font-display text-xl font-bold text-gray-900">Noble Genius Institute</h1>
+                        <p class="text-xs text-gray-600">Science & Technology</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="programs.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Programs</a>
+                    <a href="admissions.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Admissions</a>
+                    <a href="news-events.html" class="nav-link text-blue-600 font-medium">News & Events</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Apply Now
+                    </button>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg flex items-center justify-center relative">
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <h1 class="font-display text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                News & Events
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Stay connected with the latest happenings, achievements, and events at our institute.
+            </p>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12">
+                <div data-aos="fade-up">
+                    <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">Latest News</h2>
+                    <p class="text-xl text-gray-600">Discover our latest achievements and updates.</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-3 mt-6 lg:mt-0" data-aos="fade-up" data-aos-delay="200">
+                    <button class="category-filter active px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium text-sm" data-category="all">
+                        All News
+                    </button>
+                    <button class="category-filter px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium text-sm" data-category="academic">
+                        Academic
+                    </button>
+                    <button class="category-filter px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium text-sm" data-category="research">
+                        Research
+                    </button>
+                    <button class="category-filter px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium text-sm" data-category="events">
+                        Events
+                    </button>
+                    <button class="category-filter px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 font-medium text-sm" data-category="announcements">
+                        Announcements
+                    </button>
+                </div>
+            </div>
+            
+            <div id="newsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Item 1 -->
+                <article class="news-item card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="research" data-aos="fade-up">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-teal-600 flex items-center justify-center">
+                        <img src="resources/lab_image.jpg" alt="Research Breakthrough" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">Research</span>
+                            <span class="text-gray-500 text-sm">Dec 15, 2024</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+                            Breakthrough in AI-Powered Drug Discovery
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Our biotechnology research team has achieved a major breakthrough in using artificial intelligence 
+                            to accelerate drug discovery processes, potentially reducing development time by 60%.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-blue-600 font-medium">Read More</span>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>5 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 2 -->
+                <article class="news-item card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="academic" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                        <img src="resources/graduation.jpg" alt="Graduation Ceremony" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">Academic</span>
+                            <span class="text-gray-500 text-sm">Dec 12, 2024</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+                            2024 Graduation Ceremony Celebrates 500+ Graduates
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Our annual graduation ceremony celebrated over 500 students who successfully completed 
+                            their programs with a 98% employment rate within six months.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-green-600 font-medium">Read More</span>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>3 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 3 -->
+                <article class="news-item card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="events" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">Events</span>
+                            <span class="text-gray-500 text-sm">Dec 10, 2024</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+                            AI & Robotics Workshop Attracts Industry Leaders
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Our recent workshop on AI and robotics brought together leading experts from top tech companies 
+                            to share insights with our students and faculty.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-purple-600 font-medium">Read More</span>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>4 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 4 -->
+                <article class="news-item card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="announcements" data-aos="fade-up" data-aos-delay="600">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <i class="fas fa-handshake text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-orange-100 text-orange-800 px-3 py-1 rounded-full text-sm font-semibold">Announcements</span>
+                            <span class="text-gray-500 text-sm">Dec 8, 2024</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+                            New Industry Partnership with Global Tech Giant
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Noble Genius Institute announces a strategic partnership with a leading global technology company 
+                            to enhance research collaboration and student internship opportunities.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-orange-600 font-medium">Read More</span>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>6 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 5 -->
+                <article class="news-item card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="academic" data-aos="fade-up" data-aos-delay="800">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-award text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-semibold">Academic</span>
+                            <span class="text-gray-500 text-sm">Dec 5, 2024</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+                            Institute Receives National Excellence Award
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            Noble Genius Institute has been recognized with the National Excellence in STEM Education Award 
+                            for its outstanding contributions to technology education in Nigeria.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-indigo-600 font-medium">Read More</span>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>7 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 6 -->
+                <article class="news-item card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-category="research" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="h-48 bg-gradient-to-br from-teal-500 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-microscope text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm font-semibold">Research</span>
+                            <span class="text-gray-500 text-sm">Dec 3, 2024</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-gray-900 mb-3">
+                            Student Research Team Wins International Competition
+                        </h3>
+                        <p class="text-gray-600 mb-4">
+                            A team of our biotechnology students won first place at the International Student Research 
+                            Competition for their innovative work in sustainable energy solutions.
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-teal-600 font-medium">Read More</span>
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fas fa-clock mr-1"></i>
+                                <span>5 min read</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg">
+                    Load More News
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Calendar -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
+                    Upcoming Events
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Mark your calendar for exciting events and activities.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Calendar -->
+                <div class="lg:col-span-2" data-aos="fade-up">
+                    <div class="calendar-container p-6">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+                
+                <!-- Upcoming Events List -->
+                <div class="space-y-6" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-display text-2xl font-bold text-gray-900">This Week</h3>
+                    
+                    <div class="event-card bg-white rounded-xl p-6 shadow-lg">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 rounded-lg p-3 mr-4">
+                                <i class="fas fa-calendar-alt text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-blue-600 font-semibold text-sm">Dec 18, 2024</span>
+                                    <span class="text-gray-500 text-sm">2:00 PM</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-2">Research Symposium</h4>
+                                <p class="text-gray-600 text-sm mb-3">
+                                    Annual research symposium featuring presentations from faculty and students.
+                                </p>
+                                <button class="text-blue-600 hover:text-blue-800 font-medium text-sm">
+                                    RSVP <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card bg-white rounded-xl p-6 shadow-lg">
+                        <div class="flex items-start">
+                            <div class="bg-green-100 text-green-600 rounded-lg p-3 mr-4">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-green-600 font-semibold text-sm">Dec 20, 2024</span>
+                                    <span class="text-gray-500 text-sm">10:00 AM</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-2">Industry Networking Day</h4>
+                                <p class="text-gray-600 text-sm mb-3">
+                                    Connect with industry professionals and explore internship opportunities.
+                                </p>
+                                <button class="text-green-600 hover:text-green-800 font-medium text-sm">
+                                    RSVP <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card bg-white rounded-xl p-6 shadow-lg">
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 text-purple-600 rounded-lg p-3 mr-4">
+                                <i class="fas fa-graduation-cap text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-purple-600 font-semibold text-sm">Dec 22, 2024</span>
+                                    <span class="text-gray-500 text-sm">9:00 AM</span>
+                                </div>
+                                <h4 class="font-bold text-gray-900 mb-2">Graduation Rehearsal</h4>
+                                <p class="text-gray-600 text-sm mb-3">
+                                    Final rehearsal for the 2024 graduation ceremony.
+                                </p>
+                                <button class="text-purple-600 hover:text-purple-800 font-medium text-sm">
+                                    RSVP <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition-colors font-semibold">
+                            View All Events
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">
+                Stay Informed
+            </h2>
+            <p class="text-xl mb-8 opacity-90" data-aos="fade-up" data-aos-delay="200">
+                Subscribe to our newsletter for the latest news, events, and educational insights.
+            </p>
+            
+            <form class="max-w-md mx-auto" data-aos="fade-up" data-aos-delay="400">
+                <div class="flex gap-4">
+                    <input 
+                        type="email" 
+                        placeholder="Enter your email address" 
+                        class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white"
+                        required
+                    >
+                    <button 
+                        type="submit" 
+                        class="bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-100 transition-colors font-semibold"
+                    >
+                        Subscribe
+                    </button>
+                </div>
+                <p class="text-sm opacity-75 mt-4">
+                    We respect your privacy. Unsubscribe at any time.
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="resources/logo.png" alt="NGIST Logo" class="h-8 w-auto">
+                        <div class="ml-3">
+                            <h3 class="font-display text-lg font-bold">Noble Genius Institute</h3>
+                            <p class="text-sm text-gray-400">Science & Technology</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Empowering innovation through excellence in STEM education and research.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="admissions.html" class="hover:text-white transition-colors">Admissions</a></li>
+                        <li><a href="news-events.html" class="hover:text-white transition-colors">News & Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Academic</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Course Catalog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Academic Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Student Portal</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Library</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>ngisatedu@gmail.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>08065758399</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Institute Location</li>
+                        <li><i class="fas fa-clock mr-2"></i>Mon-Fri: 8AM-5PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Noble Genius Institute of Science and Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.8/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.8/index.global.min.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize FullCalendar
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,dayGridWeek'
+                },
+                events: [
+                    {
+                        title: 'Research Symposium',
+                        start: '2024-12-18',
+                        backgroundColor: '#3b82f6',
+                        borderColor: '#3b82f6'
+                    },
+                    {
+                        title: 'Industry Networking Day',
+                        start: '2024-12-20',
+                        backgroundColor: '#10b981',
+                        borderColor: '#10b981'
+                    },
+                    {
+                        title: 'Graduation Rehearsal',
+                        start: '2024-12-22',
+                        backgroundColor: '#8b5cf6',
+                        borderColor: '#8b5cf6'
+                    },
+                    {
+                        title: 'Winter Break Begins',
+                        start: '2024-12-23',
+                        end: '2025-01-07',
+                        backgroundColor: '#f59e0b',
+                        borderColor: '#f59e0b'
+                    },
+                    {
+                        title: 'New Semester Begins',
+                        start: '2025-01-08',
+                        backgroundColor: '#06b6d4',
+                        borderColor: '#06b6d4'
+                    }
+                ],
+                eventClick: function(info) {
+                    alert('Event: ' + info.event.title + '\nDate: ' + info.event.start.toDateString());
+                }
+            });
+            calendar.render();
+        });
+        
+        // News filtering functionality
+        const filterButtons = document.querySelectorAll('.category-filter');
+        const newsItems = document.querySelectorAll('.news-item');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                filterNews(category);
+            });
+        });
+        
+        function filterNews(category) {
+            newsItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                if (category === 'all' || itemCategory === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        
+        // Newsletter signup
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            alert(`Thank you for subscribing! We'll send updates to ${email}`);
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>

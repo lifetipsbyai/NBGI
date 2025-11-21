@@ -1,0 +1,14 @@
+{
+  "name": "okcomputer-noble-genius-wp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static site for OK Computer / Noble Genius",
+  "scripts": {
+    "start": "npx http-server -p 8080",
+    "dev": "npx live-server --port=8080",
+    "build": "echo \"No build step; site is static\""
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}

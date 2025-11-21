@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Noble Genius Institute of Science and Technology</title>
+    <meta name="description" content="Get in touch with Noble Genius Institute. Find contact information, location, and support options.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #0891b2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(8, 145, 178, 0.8)), 
+                        url('resources/hero_campus.jpg') center/cover;
+            height: 60vh;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .contact-card {
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .input-group {
+            position: relative;
+        }
+        
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label,
+        .input-group textarea:focus + label,
+        .input-group textarea:not(:placeholder-shown) + label,
+        .input-group select:focus + label,
+        .input-group select:not([value=""]) + label {
+            transform: translateY(-1.5rem) scale(0.875);
+            color: var(--primary-blue);
+        }
+        
+        .input-group label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            transition: all 0.2s ease;
+            pointer-events: none;
+            color: #9ca3af;
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="resources/logo.png" alt="NGIST Logo" class="h-10 w-auto">
+                    <div class="ml-3">
+                        <h1 class="font-display text-xl font-bold text-gray-900">Noble Genius Institute</h1>
+                        <p class="text-xs text-gray-600">Science & Technology</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="programs.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Programs</a>
+                    <a href="admissions.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Admissions</a>
+                    <a href="news-events.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">News & Events</a>
+                    <a href="contact.html" class="nav-link text-blue-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Apply Now
+                    </button>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg flex items-center justify-center relative">
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <h1 class="font-display text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                Contact Us
+            </h1>
+            <p class="text-xl md:text-2xl opacity-90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                We're here to help you with your educational journey. Get in touch with us today.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-4 gap-8 mb-16">
+                <div class="contact-card bg-blue-50 rounded-xl p-8 text-center" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 floating-icon">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-900 mb-4">Email Us</h3>
+                    <p class="text-gray-600 mb-4">Send us an email for quick responses to your inquiries</p>
+                    <a href="mailto:ngisatedu@gmail.com" class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">
+                        ngisatedu@gmail.com
+                    </a>
+                </div>
+                
+                <div class="contact-card bg-green-50 rounded-xl p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 floating-icon" style="animation-delay: 0.5s;">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-900 mb-4">Call Us</h3>
+                    <p class="text-gray-600 mb-4">Speak directly with our admissions and support team</p>
+                    <a href="tel:08065758399" class="text-green-600 font-semibold hover:text-green-800 transition-colors">
+                        08065758399
+                    </a>
+                </div>
+                
+                <div class="contact-card bg-purple-50 rounded-xl p-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 floating-icon" style="animation-delay: 1s;">
+                        <i class="fas fa-map-marker-alt text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-900 mb-4">Visit Us</h3>
+                    <p class="text-gray-600 mb-4">Come see our state-of-the-art facilities</p>
+                    <span class="text-purple-600 font-semibold">
+                        Abuja, Nigeria
+                    </span>
+                </div>
+                
+                <div class="contact-card bg-orange-50 rounded-xl p-8 text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-orange-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 floating-icon" style="animation-delay: 1.5s;">
+                        <i class="fas fa-clock text-2xl"></i>
+                    </div>
+                    <h3 class="font-display text-xl font-bold text-gray-900 mb-4">Office Hours</h3>
+                    <p class="text-gray-600 mb-4">We're available during these hours</p>
+                    <div class="text-orange-600 font-semibold">
+                        <div>Mon - Fri: 8:00 AM - 5:00 PM</div>
+                        <div>Sat: 9:00 AM - 2:00 PM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
+                    Send Us a Message
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Have questions? Fill out the form below and we'll get back to you soon.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-2xl shadow-xl p-8">
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="input-group">
+                            <input type="text" id="firstName" name="firstName" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                            <label for="firstName">First Name</label>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="text" id="lastName" name="lastName" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                            <label for="lastName">Last Name</label>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                            <label for="email">Email Address</label>
+                        </div>
+                        
+                        <div class="input-group">
+                            <input type="tel" id="phone" name="phone" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500">
+                            <label for="phone">Phone Number (Optional)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <select id="inquiryType" name="inquiryType" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required>
+                            <option value="">Select Inquiry Type</option>
+                            <option value="admissions">Admissions</option>
+                            <option value="programs">Academic Programs</option>
+                            <option value="fees">Fees & Financial Aid</option>
+                            <option value="research">Research Opportunities</option>
+                            <option value="partnerships">Industry Partnerships</option>
+                            <option value="general">General Information</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <textarea id="message" name="message" rows="5" placeholder=" " class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="flex items-center">
+                            <input type="checkbox" name="newsletter" class="mr-3">
+                            <span class="text-gray-700">I would like to receive updates and newsletters from NGIST</span>
+                        </label>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-semibold text-lg">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
+                    Find Us
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Visit our campus to experience our world-class facilities.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-up">
+                    <div class="map-container bg-gray-200 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-map-marked-alt text-6xl text-gray-400 mb-4"></i>
+                            <h3 class="text-2xl font-bold text-gray-600 mb-2">Campus Location</h3>
+                            <p class="text-gray-500 mb-4">Interactive map would be integrated here</p>
+                            <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                                Get Directions
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-display text-2xl font-bold text-gray-900 mb-6">Campus Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 text-blue-600 rounded-lg p-3 mr-4">
+                                <i class="fas fa-building text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Main Campus</h4>
+                                <p class="text-gray-600">
+                                    Located in the heart of Abuja with modern facilities, state-of-the-art laboratories, 
+                                    and comfortable learning environments.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-green-100 text-green-600 rounded-lg p-3 mr-4">
+                                <i class="fas fa-bus text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Transportation</h4>
+                                <p class="text-gray-600">
+                                    Shuttle services available from major locations in Abuja. 
+                                    Public transportation options are also conveniently accessible.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 text-purple-600 rounded-lg p-3 mr-4">
+                                <i class="fas fa-parking text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Parking</h4>
+                                <p class="text-gray-600">
+                                    Ample parking space available for students, staff, and visitors. 
+                                    Security personnel on duty 24/7.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-orange-100 text-orange-600 rounded-lg p-3 mr-4">
+                                <i class="fas fa-utensils text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-2">Campus Amenities</h4>
+                                <p class="text-gray-600">
+                                    Cafeteria, library, student center, and recreational facilities 
+                                    available for all students and visitors.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Find quick answers to common questions.
+                </p>
+            </div>
+            
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-900">What are the admission requirements?</span>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-600">
+                            Admission requirements vary by program. For National Diploma programs, you need SSCE/WAEC with at least 5 credits including Mathematics and English. For HND programs, you need a relevant ND certificate. Certificate programs require SSCE/WAEC certificate.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-900">How much is the tuition fee?</span>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-600">
+                            Tuition fees vary by program: National Diploma (₦250,000/year), Higher National Diploma (₦300,000/year), and Certificate Programs (₦150,000/program). We also offer scholarships and financial aid options.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-900">Do you offer scholarships?</span>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-600">
+                            Yes! We offer merit-based scholarships up to 50% tuition waiver for outstanding students, need-based financial aid, and industry-sponsored scholarships. Applications close June 30th each year.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-900">What programs do you offer?</span>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-600">
+                            We offer National Diploma and Higher National Diploma programs in Computer Science, Biotechnology, Cybersecurity, and Software Engineering. We also have certificate programs in AI & Robotics, Data Science, and Digital Marketing.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors">
+                        <span class="font-semibold text-gray-900">When does the academic session start?</span>
+                        <i class="fas fa-chevron-down text-gray-500"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-4 hidden">
+                        <p class="text-gray-600">
+                            Our academic year begins in October. We have two intakes: September (main intake) and January (limited programs). Applications open in March and close in August.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Channels -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl font-bold text-gray-900 mb-4">
+                    Support Channels
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Multiple ways to get the support you need.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-comments text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Live Chat</h3>
+                    <p class="text-gray-600 mb-4">Get instant answers to your questions</p>
+                    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors font-semibold">
+                        Start Chat
+                    </button>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Phone Support</h3>
+                    <p class="text-gray-600 mb-4">Speak with our support team</p>
+                    <a href="tel:08065758399" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors font-semibold inline-block">
+                        Call Now
+                    </a>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-video text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">Video Call</h3>
+                    <p class="text-gray-600 mb-4">Schedule a virtual meeting</p>
+                    <button class="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                        Book Meeting
+                    </button>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-whatsapp text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-3">WhatsApp</h3>
+                    <p class="text-gray-600 mb-4">Chat with us on WhatsApp</p>
+                    <button class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors font-semibold">
+                        Chat Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="resources/logo.png" alt="NGIST Logo" class="h-8 w-auto">
+                        <div class="ml-3">
+                            <h3 class="font-display text-lg font-bold">Noble Genius Institute</h3>
+                            <p class="text-sm text-gray-400">Science & Technology</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Empowering innovation through excellence in STEM education and research.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="admissions.html" class="hover:text-white transition-colors">Admissions</a></li>
+                        <li><a href="news-events.html" class="hover:text-white transition-colors">News & Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Academic</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Course Catalog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Academic Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Student Portal</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Library</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>ngisatedu@gmail.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>08065758399</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Abuja, Nigeria</li>
+                        <li><i class="fas fa-clock mr-2"></i>Mon-Fri: 8AM-5PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Noble Genius Institute of Science and Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show success message
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+        });
+        
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-toggle').forEach(button => {
+            button.addEventListener('click', () => {
+                const content = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    content.classList.add('hidden');
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+        
+        // Support channel buttons
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Start Chat') || 
+                button.textContent.includes('Book Meeting') || 
+                button.textContent.includes('Chat Now')) {
+                button.addEventListener('click', () => {
+                    alert('Support feature coming soon! Please use email or phone for now.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

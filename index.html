@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noble Genius Institute of Science and Technology</title>
+    <meta name="description" content="Leading STEM education institute offering ND, HND, and certificate programs in science and technology.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Splide Carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #0891b2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.9), rgba(8, 145, 178, 0.8)), 
+                        url('resources/hero_campus.jpg') center/cover;
+            min-height: 100vh;
+        }
+        
+        .tech-pattern {
+            background: url('resources/tech_background.jpg') center/cover;
+            opacity: 0.1;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .stats-counter {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+        }
+        
+        .news-ticker {
+            animation: scroll-left 30s linear infinite;
+        }
+        
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: var(--accent-teal);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <img src="resources/logo.png" alt="NGIST Logo" class="h-10 w-auto">
+                    <div class="ml-3">
+                        <h1 class="font-display text-xl font-bold text-gray-900">Noble Genius Institute</h1>
+                        <p class="text-xs text-gray-600">Science & Technology</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a>
+                    <a href="programs.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Programs</a>
+                    <a href="admissions.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Admissions</a>
+                    <a href="news-events.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">News & Events</a>
+                    <a href="contact.html" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Contact</a>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                        Apply Now
+                    </button>
+                    <button class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg flex items-center justify-center relative overflow-hidden">
+        <div class="tech-pattern absolute inset-0"></div>
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
+            <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight" data-aos="fade-up">
+                Innovating Science & 
+                <span class="gradient-text bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                    Technology
+                </span>
+                Education
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                Empowering the next generation of innovators through cutting-edge STEM education, 
+                research excellence, and industry partnerships.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg">
+                    Explore Programs
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors text-lg">
+                    Take Virtual Tour
+                </button>
+            </div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 floating">
+            <i class="fas fa-atom text-4xl text-white/20"></i>
+        </div>
+        <div class="absolute bottom-32 right-16 floating" style="animation-delay: -2s;">
+            <i class="fas fa-microscope text-3xl text-white/20"></i>
+        </div>
+        <div class="absolute top-1/2 right-8 floating" style="animation-delay: -4s;">
+            <i class="fas fa-dna text-2xl text-white/20"></i>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stats-item" data-aos="fade-up">
+                    <div class="stats-counter" data-count="2500">0</div>
+                    <p class="text-gray-600 font-medium">Students Enrolled</p>
+                </div>
+                <div class="stats-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stats-counter" data-count="15">0</div>
+                    <p class="text-gray-600 font-medium">Academic Programs</p>
+                </div>
+                <div class="stats-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stats-counter" data-count="98">0</div>
+                    <p class="text-gray-600 font-medium">% Employment Rate</p>
+                </div>
+                <div class="stats-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stats-counter" data-count="50">0</div>
+                    <p class="text-gray-600 font-medium">Industry Partners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Programs -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Featured Programs
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Choose from our comprehensive range of STEM programs designed to launch your career in science and technology.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Computer Science</h3>
+                        <p class="text-gray-600 mb-4">Master programming, software development, and emerging technologies in our state-of-the-art labs.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-blue-600 font-semibold">ND & HND Programs</span>
+                            <button class="text-blue-600 hover:text-blue-800 font-medium">
+                                Learn More <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+                        <i class="fas fa-flask text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Biotechnology</h3>
+                        <p class="text-gray-600 mb-4">Explore the intersection of biology and technology in our advanced research facilities.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-green-600 font-semibold">ND & HND Programs</span>
+                            <button class="text-green-600 hover:text-green-800 font-medium">
+                                Learn More <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-xl shadow-lg overflow-hidden" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                        <i class="fas fa-robot text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">AI & Robotics</h3>
+                        <p class="text-gray-600 mb-4">Build the future with artificial intelligence and robotics engineering programs.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-purple-600 font-semibold">Certificate Programs</span>
+                            <button class="text-purple-600 hover:text-purple-800 font-medium">
+                                Learn More <i class="fas fa-arrow-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-lg">
+                    View All Programs
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Events Ticker -->
+    <section class="py-12 bg-blue-600 text-white overflow-hidden">
+        <div class="relative">
+            <div class="news-ticker whitespace-nowrap">
+                <span class="inline-block mx-8 text-lg font-medium">
+                    <i class="fas fa-bullhorn mr-2"></i>
+                    Admissions Open for 2024 Session • Research Symposium on AI Ethics • Industry Partnership with Tech Giants • New Scholarship Programs Available •
+                </span>
+                <span class="inline-block mx-8 text-lg font-medium">
+                    <i class="fas fa-bullhorn mr-2"></i>
+                    Admissions Open for 2024 Session • Research Symposium on AI Ethics • Industry Partnership with Tech Giants • New Scholarship Programs Available •
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Showcase -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    Our Achievements
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Celebrating excellence in education, research, and innovation.
+                </p>
+            </div>
+            
+            <div class="splide" id="achievements-carousel">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                                <img src="resources/graduation.jpg" alt="Graduation Ceremony" class="w-full h-48 object-cover rounded-lg mb-6">
+                                <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Outstanding Graduation Rate</h3>
+                                <p class="text-gray-600">98% of our students successfully complete their programs and graduate with honors.</p>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                                <img src="resources/lab_image.jpg" alt="Research Excellence" class="w-full h-48 object-cover rounded-lg mb-6">
+                                <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Research Excellence Award</h3>
+                                <p class="text-gray-600">Recognized nationally for groundbreaking research in biotechnology and AI.</p>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="bg-white rounded-xl shadow-lg p-8 text-center">
+                                <div class="w-full h-48 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg mb-6 flex items-center justify-center">
+                                    <i class="fas fa-trophy text-6xl text-white"></i>
+                                </div>
+                                <h3 class="font-display text-2xl font-bold text-gray-900 mb-3">Industry Partnership Excellence</h3>
+                                <p class="text-gray-600">Strategic alliances with leading tech companies for internships and job placements.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-blue-600 to-teal-600 text-white">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-6" data-aos="fade-up">
+                Ready to Start Your Journey?
+            </h2>
+            <p class="text-xl mb-8 opacity-90" data-aos="fade-up" data-aos-delay="200">
+                Join thousands of successful graduates who have launched their careers in science and technology.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="400">
+                <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg">
+                    Apply for Admission
+                </button>
+                <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors text-lg">
+                    Schedule Campus Visit
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="resources/logo.png" alt="NGIST Logo" class="h-8 w-auto">
+                        <div class="ml-3">
+                            <h3 class="font-display text-lg font-bold">Noble Genius Institute</h3>
+                            <p class="text-sm text-gray-400">Science & Technology</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Empowering innovation through excellence in STEM education and research.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="about.html" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="programs.html" class="hover:text-white transition-colors">Programs</a></li>
+                        <li><a href="admissions.html" class="hover:text-white transition-colors">Admissions</a></li>
+                        <li><a href="news-events.html" class="hover:text-white transition-colors">News & Events</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Academic</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Course Catalog</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Academic Calendar</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Student Portal</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Library</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>ngisatedu@gmail.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>08065758399</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Institute Location</li>
+                        <li><i class="fas fa-clock mr-2"></i>Mon-Fri: 8AM-5PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Noble Genius Institute of Science and Technology. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize Splide Carousel
+        new Splide('#achievements-carousel', {
+            type: 'loop',
+            perPage: 3,
+            perMove: 1,
+            gap: '2rem',
+            autoplay: true,
+            interval: 4000,
+            breakpoints: {
+                768: {
+                    perPage: 1,
+                },
+                1024: {
+                    perPage: 2,
+                }
+            }
+        }).mount();
+        
+        // Stats Counter Animation
+        function animateStats() {
+            const stats = document.querySelectorAll('.stats-counter');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000;
+                const increment = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current).toLocaleString();
+                }, 16);
+            });
+        }
+        
+        // Trigger stats animation when section is visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        
+        observer.observe(document.querySelector('.stats-item'));
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', () => {
+                // Add mobile menu functionality here
+                console.log('Mobile menu clicked');
+            });
+        }
+    </script>
+</body>
+</html>
