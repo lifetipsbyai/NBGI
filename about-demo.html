@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Noble Genius Institute of Science and Technology</title>
+    <meta name="description" content="Learn about Noble Genius Institute - Leading STEM education with innovative programs and world-class faculty.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animation Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Include the same CSS variables and base styles from demo.html */
+        :root {
+            --primary-blue: #1e40af;
+            --secondary-blue: #3b82f6;
+            --accent-teal: #0891b2;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --gray-300: #d1d5db;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        /* Header Styles */
+        .site-header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .site-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .main-navigation ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .main-navigation a {
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+
+        .main-navigation a:hover,
+        .main-navigation a.active {
+            background: var(--bg-light);
+            color: var(--primary-blue);
+        }
+
+        /* About Page Specific Styles */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-teal) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 0 4rem;
+            margin-top: 80px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .card-content {
+            color: var(--text-light);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--accent-teal);
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .value-description {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .bg-light {
+            background: var(--bg-light);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Navigation styles */
+        .nav-links {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-links a.active {
+            background: var(--accent-teal);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .main-navigation ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="site-branding">
+                    <a href="demo.html" class="site-logo">
+                        <img src="wordpress-site/wp-content/themes/ngist-theme/assets/images/logo.png" 
+                             alt="Noble Genius Institute of Science and Technology" 
+                             width="200" 
+                             height="60">
+                    </a>
+                </div>
+
+                <nav class="main-navigation">
+                    <ul>
+                        <li><a href="demo.html">Home</a></li>
+                        <li><a href="about-demo.html" class="active">About</a></li>
+                        <li><a href="programs-demo.html">Programs</a></li>
+                        <li><a href="contact-demo.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Links -->
+    <div class="nav-links">
+        <div class="container">
+            <a href="demo.html">🏠 Homepage Demo</a>
+            <a href="about-demo.html" class="active">📖 About Page</a>
+            <a href="programs-demo.html">🎓 Programs Page</a>
+            <a href="contact-demo.html">📞 Contact Page</a>
+        </div>
+    </div>
+
+    <main class="site-main about-page">
+        <!-- Hero Section -->
+        <section class="about-hero section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title font-display" data-aos="fade-up">
+                        About Noble Genius Institute
+                    </h1>
+                    <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                        Leading the way in STEM education with innovative programs, world-class faculty, and state-of-the-art facilities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision Section -->
+        <section class="mission-vision section" data-aos="fade-up">
+            <div class="container">
+                <div class="mission-vision-grid grid grid-2">
+                    <div class="mission-card card" data-aos="fade-right">
+                        <div class="card-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 class="card-title">Our Mission</h3>
+                        <p class="card-content">
+                            To provide world-class STEM education that empowers students with the knowledge, skills, and innovation mindset needed to excel in the rapidly evolving technology landscape and contribute meaningfully to society.
+                        </p>
+                    </div>
+                    
+                    <div class="vision-card card" data-aos="fade-left">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 class="card-title">Our Vision</h3>
+                        <p class="card-content">
+                            To be the leading institute of science and technology education in Africa, recognized globally for academic excellence, innovative research, and producing graduates who drive technological advancement and economic development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="core-values section bg-light" data-aos="fade-up">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title font-display">Our Core Values</h2>
+                    <p class="section-subtitle">The principles that guide everything we do</p>
+                </div>
+
+                <div class="values-grid grid grid-3">
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="value-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 class="value-title">Excellence</h3>
+                        <p class="value-description">
+                            We strive for the highest standards in education, research, and service delivery.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="value-title">Innovation</h3>
+                        <p class="value-description">
+                            We embrace creativity and cutting-edge approaches to solve complex challenges.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="value-title">Integrity</h3>
+                        <p class="value-description">
+                            We maintain the highest ethical standards in all our interactions and decisions.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="value-title">Collaboration</h3>
+                        <p class="value-description">
+                            We believe in the power of teamwork and partnerships to achieve greater impact.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="value-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="value-title">Global Perspective</h3>
+                        <p class="value-description">
+                            We prepare students for success in an interconnected, globalized world.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="value-title">Sustainability</h3>
+                        <p class="value-description">
+                            We are committed to environmental responsibility and sustainable practices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Section -->
+        <section class="history section" data-aos="fade-up">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title font-display">Our History</h2>
+                    <p class="section-subtitle">Building excellence in STEM education since our founding</p>
+                </div>
+
+                <div class="history-content grid grid-2" style="align-items: center; gap: 4rem;">
+                    <div class="history-text" data-aos="fade-right">
+                        <h3 style="color: var(--text-dark); margin-bottom: 1rem;">Founded on Innovation</h3>
+                        <p style="color: var(--text-light); margin-bottom: 1.5rem;">
+                            Noble Genius Institute of Science and Technology was established with a clear vision: to bridge the gap between traditional education and the rapidly evolving demands of the technology industry.
+                        </p>
+                        <p style="color: var(--text-light); margin-bottom: 1.5rem;">
+                            Our founder, Gilbert Chidiebere Nnamdi, recognized the need for practical, industry-relevant education that would prepare students not just for today's jobs, but for the careers of tomorrow.
+                        </p>
+                        <p style="color: var(--text-light);">
+                            Since our inception, we have grown from a small institute with a handful of programs to a comprehensive educational institution offering multiple pathways in science and technology education.
+                        </p>
+                    </div>
+                    
+                    <div class="history-image" data-aos="fade-left">
+                        <img src="wordpress-site/wp-content/themes/ngist-theme/assets/images/graduation.jpg" 
+                             alt="Institute History" 
+                             style="width: 100%; height: auto; border-radius: 1rem; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
+</html>
